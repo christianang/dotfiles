@@ -1,0 +1,41 @@
+#!/bin/bash -exu
+
+export ROOT=$(cd .. && pwd)
+
+# Setup NVim
+function setup_nvim() {
+  echo "Setup nvim config"
+
+  mkdir -p "${HOME}/.config/nvim"
+
+  # Symlink only if not exist
+  if [ ! -f "${HOME}/.config/nvim/init.vim" ]; then
+    ln -s "${ROOT}/.nvimrc" "${HOME}/.config/nvim/init.vim"
+  fi
+}
+
+# Setup tmux
+function setup_tmux() {
+  echo "Setup tmux config"
+  # Symlink only if not exist
+  if [ ! -f "${HOME}/.tmux.conf" ]; then
+    ln -s "${ROOT}/.tmux.conf" "${HOME}/.tmux.conf"
+  fi
+}
+
+# Setup zshrc
+function setup_zshrc() {
+  echo "Setup zsh config"
+  # Symlink only if not exist
+  if [ ! -f "${HOME}/.zshrc" ]; then
+    ln -s "${ROOT}/.zshrc" "${HOME}/.zshrc"
+  fi
+}
+
+function main() {
+  setup_nvim
+  setup_zshrc
+  setup_tmux
+}
+
+main
