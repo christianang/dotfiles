@@ -114,6 +114,9 @@ call matchadd('ColorColumn', '\%81v', 100)
 let base16colorspace=256
 colorscheme base16-default-dark
 
+" Highlight Matching Paren
+hi MatchParen cterm=bold ctermbg=none ctermfg=green
+
 " Airline settings
 let g:airline_theme='papercolor'
 let g:airline_powerline_fonts = 1

@@ -96,3 +96,10 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll="ls -al"
 alias vim="nvim"
+alias node="nodejs"
+
+# setup direnv
+eval "$(direnv hook zsh)"
+
+# setup autojump
+. /usr/share/autojump/autojump.sh
