@@ -5,6 +5,10 @@ export ZSH=/home/cang/.oh-my-zsh
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
 
+# Path to rbenv
+export RBENVPATH="${HOME}/.rbenv/bin"
+export PATH="${RBENVPATH}:${PATH}"
+
 # Base16 Theme
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
@@ -16,7 +20,8 @@ base16_flat
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="gentoo"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+ZSH_THEME="amuse"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -103,3 +108,6 @@ eval "$(direnv hook zsh)"
 
 # setup autojump
 . /usr/share/autojump/autojump.sh
+
+# setup rbenv
+eval "$(rbenv init -)"
