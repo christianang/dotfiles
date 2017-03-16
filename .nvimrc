@@ -21,6 +21,7 @@ Plugin 'fatih/vim-go'
 Plugin 'eiginn/netrw'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-jdaddy'
+Plugin 'lambdatoast/elm.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
