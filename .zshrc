@@ -26,7 +26,6 @@ source $ZSH/oh-my-zsh.sh
 alias ll="ls -al"
 alias vim="nvim"
 alias reload="source ~/.zshrc"
-alias start_mysql="docker run -p 3306:3306 --name dev_mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_ROOT_HOST=% -d mysql/mysql-server:latest"
 alias docker_rm_all="docker ps --all | cut -d" " -f1 | grep -v CONTAINER | xargs -n 1 docker rm"
 
 # setup direnv
@@ -46,3 +45,27 @@ eval "$(rbenv init -)"
 bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# start mysql function
+function start_mysql() {
+  if [ -z "$(docker ps | grep dev_mysql)" ]; then
+    if [ -z "$(docker ps --all | grep dev_mysql)" ]; then
+      echo "creating and starting mysql docker container"
+      docker run \
+        --name dev_mysql \
+        -p 3306:3306 \
+        -e MYSQL_ROOT_PASSWORD=password \
+        -e MYSQL_ROOT_HOST=% \
+        -d mysql/mysql-server:latest
+    else
+      echo "starting mysql docker container"
+      docker start dev_mysql
+    fi
+  else
+    echo "mysql docker container already running"
+  fi
+}
+
+function stop_mysql() {
+  docker stop dev_mysql
+}
