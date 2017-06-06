@@ -1,0 +1,16 @@
+[alias]
+	co = checkout
+	br = branch
+	cr = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	ci = commit
+  pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+[user]
+	email = christian.ang@outlook.com
+	name = Christian Ang
+[push]
+	default = simple
+[core]
+	editor = vim
