@@ -26,6 +26,8 @@ source $ZSH/oh-my-zsh.sh
 alias ll="ls -al"
 alias vim="nvim"
 alias reload="source ~/.zshrc"
+alias start_mysql="docker run -p 3306:3306 --name dev_mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_ROOT_HOST=% -d mysql/mysql-server:latest"
+alias docker_rm_all="docker ps --all | cut -d" " -f1 | grep -v CONTAINER | xargs -n 1 docker rm"
 
 # setup direnv
 eval "$(direnv hook zsh)"
@@ -42,7 +44,5 @@ eval "$(rbenv init -)"
 
 # zsh vi mode
 bindkey -v
-
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
