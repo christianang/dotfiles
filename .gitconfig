@@ -1,16 +1,30 @@
 [alias]
-	co = checkout
-	br = branch
-	cr = commit
-	st = status
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	ci = commit
-  pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+  st = status
+  di = diff
+  co = checkout
+  ci = duet-commit
+  br = branch
+  sta = stash
+  llog = "log --date=local"
+  flog = "log --pretty=fuller --decorate"
+  lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+  lol = "log --graph --decorate --oneline"
+  lola = "log --graph --decorate --oneline --all"
+  blog = "log origin/master... --left-right"
+  ds = "diff --staged"
+  fixup = "commit --fixup"
+  squash = "commit --squash"
+  unstage = "reset HEAD --"
+  rum = "rebase master@{u}"
+  dci = duet-commit
+  drv = duet-revert
+  dmg = duet-merge
+  drb = rebase -i --exec 'git duet-commit --amend --reset-author'
+  last = log -1 --format=full HEAD
 [user]
-	email = christian.ang@outlook.com
-	name = Christian Ang
+  email = christian.ang@outlook.com
+  name = Christian Ang
 [push]
-	default = simple
+  default = simple
 [core]
-	editor = nvim
+  editor = nvim
