@@ -10,18 +10,23 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-endwise'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'eiginn/netrw'
 Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-endwise'
 Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go'
-Plugin 'eiginn/netrw'
+Plugin 'fatih/vim-hclfmt'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-jdaddy'
+Plugin 'tpope/vim-surround'
 Plugin 'lambdatoast/elm.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rking/ag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -98,6 +103,17 @@ endif
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" yank to clipboard alias
+vnoremap <leader>y "*y
+
+" yank to clipboard alias
+nnoremap <leader>p "*p
+vnoremap <leader>p "*p
+
+" Enable > indent and < unindent
+vnoremap <silent> > >gv
+vnoremap <silent> < <gv
+
 " Turn backup off
 set nobackup
 set nowb
@@ -117,6 +133,15 @@ colorscheme base16-default-dark
 
 " Highlight Matching Paren
 hi MatchParen cterm=bold ctermbg=none ctermfg=green
+
+" CTRLP mods
+let g:ctrlp_map = '<Leader>f'
+let g:ctrl_p_working_path_mode = 'r'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  'log$\|tmp$\|\.git$\|\.hg$\|\.svn$\|vendor$',
+      \ 'file': '\.DS_STORE$\|tags',
+      \ 'link': '',
+      \ }
 
 " Airline settings
 let g:airline_theme='papercolor'
@@ -152,12 +177,15 @@ if has('autocmd')
   autocmd FileType go nmap <Leader>a :vsp<CR>:GoAlternate<CR>
   " run tests
   autocmd FileType go nnoremap <leader>t :GoTest<cr>
+  " compile code
+  autocmd FileType go nnoremap <leader>c :GoTestCompile<cr>
   " run code
   autocmd FileType go nnoremap <Leader>r <Plug>(go-run)
   " Ruby settings
   autocmd FileType ruby set tabstop=2 shiftwidth=2 expandtab
   " YAML
   autocmd FileType yaml setlocal indentexpr=
+  autocmd FileType yaml set tabstop=2 shiftwidth=2 expandtab
   " JSON
   " autocmd FileType json autocmd BufWritePre <buffer> :normal gqaj
   " Save anytime we leave a buffer or MacVim loses focus.
