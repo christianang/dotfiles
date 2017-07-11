@@ -2,50 +2,143 @@
 
 export ROOT=$(cd .. && pwd)
 
-# Setup NVim
+function confirm {
+  read -r -p "Are you sure? [yN] " response
+  case $response in
+    [yY][eE][sS]|[yY])
+      return
+      ;;
+
+    *)
+      echo "Bailing out, you said no"
+      exit 187
+      ;;
+  esac
+}
+
+function setup_brew {
+  if [ -z "$(which brew)" ]; then
+    echo "Installing homebrew..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  echo "Running brew update..."
+  brew update
+  brew tap Homebrew/bundle
+  ln -sf $(pwd)/Brewfile ${HOME}/.Brewfile
+  brew bundle --global
+  brew bundle cleanup
+}
+
 function setup_nvim {
   echo "Setup nvim config"
 
   mkdir -p "${HOME}/.config/nvim"
+  ln -s "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
 
-  # Symlink only if not exist
-  if [ ! -f "${HOME}/.config/nvim/init.vim" ]; then
-    ln -s "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
-  fi
+  echo "Installing vim plugins..."
+  nvim -c "BundleInstall" -c "qall!" --headless
+  echo
+
+  echo "Updating vim plugins..."
+  nvim -c "BundleUpdate" -c "qall!" --headless
+  echo
+
+  echo "Installing vim go binaries..."
+  nvim -c "GoInstallBinaries" -c "qall!" --headless /tmp/foo.go
+  echo
 }
 
-# Setup tmux
 function setup_tmux {
   echo "Setup tmux config"
-  # Symlink only if not exist
-  if [ ! -f "${HOME}/.tmux.conf" ]; then
-    ln -s "${ROOT}/tmux.conf" "${HOME}/.tmux.conf"
-  fi
+  ln -s "${ROOT}/tmux.conf" "${HOME}/.tmux.conf"
 }
 
-# Setup zshrc
 function setup_zshrc {
-  echo "Setup zsh config"
-  # Symlink only if not exist
-  if [ ! -f "${HOME}/.zshrc" ]; then
-    ln -s "${ROOT}/zshrc" "${HOME}/.zshrc"
+  echo "Installing oh-my-zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+  base16_shell_path=~/.config/base16-shell
+  if [ ! -d ${base16_shell_path} ]; then
+    echo "Cloning base16 shell repo..."
+    git clone "https://github.com/chriskempson/base16-shell.git" ${base16_shell_path}
   fi
+
+  echo "Setup zsh config"
+  ln -s "${ROOT}/zshrc" "${HOME}/.zshrc"
 }
 
-# Setup gitconfig
-function setup_gitconfig {
-  echo "Setup git config"
-  # Symlink only if not exist
-  if [ ! -f "${HOME}/.gitconfig" ]; then
-    ln -s "${ROOT}/gitconfig" "${HOME}/.gitconfig"
+function setup_git {
+  echo "Setup git"
+  ln -s "${ROOT}/gitconfig" "${HOME}/.gitconfig"
+  ln -s "${ROOT}/gitignore_global" "${HOME}/.gitignore_global"
+}
+
+function setup_fzf {
+  echo "Setup fzf"
+  ln -s "${ROOT}/fzf.zsh" "${HOME}/.fzf.zsh"
+}
+
+function setup_ruby {
+  echo "Installing ruby 2.3.0..."
+  rbenv install -s 2.3.0
+  rbenv global 2.3.0
+  eval "$(rbenv init -)"
+
+  echo "Linking gemrc..."
+  ln -sf $(pwd)/gemrc ${HOME}/.gemrc
+
+  echo "Installing bundler gem..."
+  gem install bundler
+}
+
+function setup_go {
+  echo "Creating go/src and workspace..."
+  go_src=${HOME}/go/src
+  if [ ! -e ${go_src} ]; then
+    mkdir -pv ${HOME}/go/src
   fi
+
+  if [ -L ${go_src} ]; then
+    echo "${go_src} exists, but is a symbolic link"
+  fi
+
+  workspace=${HOME}/workspace
+  if [ ! -e ${workspace} ]; then
+    ln -sv ${go_src} ${workspace}
+  fi
+
+  if [ ! -L ${workspace} ]; then
+    echo "${workspace} exists, but is not a symbolic link"
+  fi
+
+  export GOPATH="${HOME}/go"
+  echo "Installing ginkgo..."
+  go get -u github.com/onsi/ginkgo/ginkgo
+
+  echo "Installing gomega..."
+  go get -u github.com/onsi/gomega
 }
 
 function main() {
+  confirm
+
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    echo "Detected linux"
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "Detected mac osx"
+    setup_brew
+  fi
+
   setup_nvim
   setup_zshrc
   setup_tmux
   setup_gitconfig
+  setup_fzf
+  setup_ruby
+  setup_go
+
+  echo "Workstation setup complete"
 }
 
 main
