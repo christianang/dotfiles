@@ -1,6 +1,6 @@
 #!/bin/bash -exu
 
-export ROOT=$(cd .. && pwd)
+export ROOT="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)"
 
 function confirm {
   read -r -p "Are you sure? [yN] " response
@@ -34,7 +34,7 @@ function setup_nvim {
   echo "Setup nvim config"
 
   mkdir -p "${HOME}/.config/nvim"
-  ln -s "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
+  ln -sf "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
 
   echo "Installing vim plugins..."
   nvim -c "BundleInstall" -c "qall!" --headless
@@ -51,7 +51,7 @@ function setup_nvim {
 
 function setup_tmux {
   echo "Setup tmux config"
-  ln -s "${ROOT}/tmux.conf" "${HOME}/.tmux.conf"
+  ln -sf "${ROOT}/tmux.conf" "${HOME}/.tmux.conf"
 }
 
 function setup_zshrc {
@@ -65,18 +65,18 @@ function setup_zshrc {
   fi
 
   echo "Setup zsh config"
-  ln -s "${ROOT}/zshrc" "${HOME}/.zshrc"
+  ln -sf "${ROOT}/zshrc" "${HOME}/.zshrc"
 }
 
 function setup_git {
   echo "Setup git"
-  ln -s "${ROOT}/gitconfig" "${HOME}/.gitconfig"
-  ln -s "${ROOT}/gitignore_global" "${HOME}/.gitignore_global"
+  ln -sf "${ROOT}/gitconfig" "${HOME}/.gitconfig"
+  ln -sf "${ROOT}/gitignore_global" "${HOME}/.gitignore_global"
 }
 
 function setup_fzf {
   echo "Setup fzf"
-  ln -s "${ROOT}/fzf.zsh" "${HOME}/.fzf.zsh"
+  ln -sf "${ROOT}/fzf.zsh" "${HOME}/.fzf.zsh"
 }
 
 function setup_ruby {
@@ -105,7 +105,7 @@ function setup_go {
 
   workspace=${HOME}/workspace
   if [ ! -e ${workspace} ]; then
-    ln -sv ${go_src} ${workspace}
+    ln -sfv ${go_src} ${workspace}
   fi
 
   if [ ! -L ${workspace} ]; then
@@ -118,6 +118,18 @@ function setup_go {
 
   echo "Installing gomega..."
   go get -u github.com/onsi/gomega
+}
+
+function setup_powerline() {
+  git clone https://github.com/powerline/fonts.git
+  pushd fonts > /dev/null
+    ./install.sh
+  popd > /dev/null
+  rm -rf fonts
+}
+
+function setup_git_duet() {
+  ln -sf "${ROOT}/git-authors" "${HOME}/.git-authors"
 }
 
 function main() {
@@ -133,10 +145,12 @@ function main() {
   setup_nvim
   setup_zshrc
   setup_tmux
-  setup_gitconfig
+  setup_git
   setup_fzf
   setup_ruby
   setup_go
+  setup_powerline
+  setup_git_duet
 
   echo "Workstation setup complete"
 }

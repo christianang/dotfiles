@@ -1,0 +1,8 @@
+authors:
+  ca: Christian Ang; cang
+
+email:
+  prefix: pair
+  domain: pivotal.io
+
+global: true

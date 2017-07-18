@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/cang/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 
 # Path to go
 export GOPATH="${HOME}/go"
@@ -16,7 +16,7 @@ base16_flat
 
 ZSH_THEME="amuse"
 
-plugins=(git autojump colorize history history-substring-search zsh-syntax-highlighting vi-mode web-search)
+plugins=(git fasd colorize history history-substring-search zsh-syntax-highlighting vi-mode web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -31,8 +31,8 @@ alias docker_rm_all="docker ps --all | cut -d" " -f1 | grep -v CONTAINER | xargs
 # setup direnv
 eval "$(direnv hook zsh)"
 
-# setup autojump
-source /usr/share/autojump/autojump.sh
+# setup fasd
+eval "$(fasd --init auto)"
 
 # setup nvm
 export NVM_DIR="/home/cang/.nvm"
