@@ -66,6 +66,9 @@ function setup_zshrc {
 
   echo "Setup zsh config"
   ln -sf "${ROOT}/zshrc" "${HOME}/.zshrc"
+
+  echo "Adding zsh theme"
+  ln -sf "${ROOT}/zero.zsh-theme" "${HOME}/.oh-my-zsh/themes/zero.zsh-theme"
 }
 
 function setup_git {
