@@ -67,6 +67,9 @@ function setup_zshrc {
   echo "Setup zsh config"
   ln -sf "${ROOT}/zshrc" "${HOME}/.zshrc"
 
+  echo "Add zsh-git-prompt"
+  git clone https://github.com/olivierverdier/zsh-git-prompt ${HOME}/.config/zsh-git-prompt
+
   echo "Adding zsh theme"
   ln -sf "${ROOT}/zero.zsh-theme" "${HOME}/.oh-my-zsh/themes/zero.zsh-theme"
 }

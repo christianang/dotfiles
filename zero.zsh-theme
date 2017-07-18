@@ -9,6 +9,7 @@ function git_authors() {
 }
 
 function git_status_prompt() {
+  precmd_update_git_vars
   if [ -n "$__CURRENT_GIT_STATUS" ]; then
 	  STATUS="$ZSH_THEME_GIT_PROMPT_PREFIX$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH%{${reset_color}%}"
 

@@ -20,6 +20,8 @@ plugins=(git fasd colorize history history-substring-search zsh-syntax-highlight
 
 source $ZSH/oh-my-zsh.sh
 
+source $HOME/.config/zsh-git-prompt/zshrc.sh
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
