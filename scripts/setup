@@ -81,6 +81,16 @@ function setup_zshrc {
 
   echo "Adding zsh theme"
   ln -sf "${ROOT}/zero.zsh-theme" "${HOME}/.oh-my-zsh/themes/zero.zsh-theme"
+
+  echo "Install pure prompt"
+  local pure_prompt_path=${HOME}/.config/pure
+  if [ ! -d ${pure_prompt_path} ]; then
+    git clone https://github.com/sindresorhus/pure ${pure_prompt_path}
+  fi
+
+  mkdir -p ${HOME}/.zfunctions
+  ln -s "${HOME}/.config/pure/pure.zsh" ${HOME}/.zfunctions/prompt_pure_setup
+  ln -s "${HOME}/.config/pure/async.zsh" ${HOME}/.zfunctions/async
 }
 
 function setup_git {
