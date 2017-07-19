@@ -1,3 +1,6 @@
 [submodule "modules/Menlo-for-Powerline"]
 	path = modules/Menlo-for-Powerline
 	url = https://github.com/abertsch/Menlo-for-Powerline
+[submodule "modules/iterm2-snazzy"]
+	path = modules/iterm2-snazzy
+	url = https://github.com/sindresorhus/iterm2-snazzy
