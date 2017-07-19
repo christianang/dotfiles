@@ -53,4 +53,4 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}|"
 ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%}|"
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%m %{$fg[yellow]%}%~ $(git_status_prompt)${NEWLINE}$(git_authors)%{$reset_color%}%(!.#.$) '
+PROMPT='${NEWLINE}%m %{$fg[yellow]%}%~ %{$reset_color%}$(git_status_prompt)${NEWLINE}$(git_authors)%{$reset_color%}%(!.#.$) '
