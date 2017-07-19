@@ -10,17 +10,22 @@ export RBENVPATH="${HOME}/.rbenv/bin"
 export PATH="${RBENVPATH}:${PATH}"
 
 # Base16 Theme
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-base16_flat
+# BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# base16_flat
 
-ZSH_THEME="zero"
+ZSH_THEME=""
+
+fpath=( "$HOME/.zfunctions" $fpath )
 
 plugins=(git fasd colorize history history-substring-search zsh-syntax-highlighting vi-mode web-search)
 
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/.config/zsh-git-prompt/zshrc.sh
+
+autoload -U promptinit; promptinit
+prompt pure
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
