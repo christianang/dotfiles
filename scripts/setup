@@ -51,12 +51,18 @@ function setup_nvim {
 
 function setup_tmux {
   echo "Setup tmux config"
-  ln -sf "${ROOT}/tmux.conf" "${HOME}/.tmux.conf"
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    ln -sf "${ROOT}/tmux-linux.conf" "${HOME}/.tmux.conf"
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    ln -sf "${ROOT}/tmux-osx.conf" "${HOME}/.tmux.conf"
+  fi
 }
 
 function setup_zshrc {
   echo "Installing oh-my-zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  if [ ! -d ${HOME}/.oh-my-zsh ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  fi
 
   base16_shell_path=~/.config/base16-shell
   if [ ! -d ${base16_shell_path} ]; then
@@ -68,7 +74,10 @@ function setup_zshrc {
   ln -sf "${ROOT}/zshrc" "${HOME}/.zshrc"
 
   echo "Add zsh-git-prompt"
-  git clone https://github.com/olivierverdier/zsh-git-prompt ${HOME}/.config/zsh-git-prompt
+  local zsh_git_prompt_path=${HOME}/.config/zsh-git-prompt
+  if [ ! -d ${zsh_git_prompt_path} ]; then
+    git clone https://github.com/olivierverdier/zsh-git-prompt ${zsh_git_prompt_path}
+  fi
 
   echo "Adding zsh theme"
   ln -sf "${ROOT}/zero.zsh-theme" "${HOME}/.oh-my-zsh/themes/zero.zsh-theme"
