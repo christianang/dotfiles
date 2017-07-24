@@ -89,8 +89,8 @@ function setup_zshrc {
   fi
 
   mkdir -p ${HOME}/.zfunctions
-  ln -s "${HOME}/.config/pure/pure.zsh" ${HOME}/.zfunctions/prompt_pure_setup
-  ln -s "${HOME}/.config/pure/async.zsh" ${HOME}/.zfunctions/async
+  ln -sf "${HOME}/.config/pure/pure.zsh" ${HOME}/.zfunctions/prompt_pure_setup
+  ln -sf "${HOME}/.config/pure/async.zsh" ${HOME}/.zfunctions/async
 }
 
 function setup_git {
