@@ -53,6 +53,8 @@ bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # start mysql function
 function start_mysql() {
   if [ -z "$(docker ps | grep dev_mysql)" ]; then
