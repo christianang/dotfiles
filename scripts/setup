@@ -36,6 +36,9 @@ function setup_nvim {
   mkdir -p "${HOME}/.config/nvim"
   ln -sf "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
 
+  mkdir -p "${HOME}/.config/nvim/colors"
+  ln -sf "${ROOT}/colorscheme/base16-zero.vim" "${HOME}/.config/nvim/colors/base16-zero.vim"
+
   echo "Installing vim plugins..."
   nvim -c "BundleInstall" -c "qall!" --headless
   echo

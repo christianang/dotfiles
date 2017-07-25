@@ -10,9 +10,10 @@ export RBENVPATH="${HOME}/.rbenv/bin"
 export PATH="${RBENVPATH}:${PATH}"
 
 # Base16 Theme
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-base16_flat
+# BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# base16_flat
+source ~/.base16_theme
 
 ZSH_THEME=""
 
