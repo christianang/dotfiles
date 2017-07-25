@@ -129,7 +129,7 @@ call matchadd('ColorColumn', '\%81v', 100)
 
 " colorscheme
 let base16colorspace=256
-colorscheme base16-default-dark
+colorscheme base16-zero
 
 " Highlight Matching Paren
 hi MatchParen cterm=bold ctermbg=none ctermfg=green

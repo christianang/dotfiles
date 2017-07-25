@@ -79,6 +79,9 @@ function setup_zshrc {
     git clone https://github.com/olivierverdier/zsh-git-prompt ${zsh_git_prompt_path}
   fi
 
+  echo "Adding colorscheme"
+  ln -sf "${ROOT}/colorscheme/base16_theme" "${HOME}/.base16_theme"
+
   echo "Adding zsh theme"
   ln -sf "${ROOT}/zero.zsh-theme" "${HOME}/.oh-my-zsh/themes/zero.zsh-theme"
 
