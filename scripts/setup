@@ -97,6 +97,8 @@ function setup_zshrc {
   mkdir -p ${HOME}/.zfunctions
   ln -sf "${HOME}/.config/pure/pure.zsh" ${HOME}/.zfunctions/prompt_pure_setup
   ln -sf "${HOME}/.config/pure/async.zsh" ${HOME}/.zfunctions/async
+
+  ln -sf "${ROOT}/zsh-functions" "${HOME}/.zsh-functions"
 }
 
 function setup_git {

@@ -1,6 +1,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
+# Theme
+source ~/.base16_theme
+ZSH_THEME=""
+plugins=(git fasd colorize history history-substring-search zsh-syntax-highlighting vi-mode web-search)
+
 # Path to go
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
@@ -9,17 +14,8 @@ export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
 export RBENVPATH="${HOME}/.rbenv/bin"
 export PATH="${RBENVPATH}:${PATH}"
 
-# Base16 Theme
-# BASE16_SHELL=$HOME/.config/base16-shell/
-# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-# base16_flat
-source ~/.base16_theme
-
-ZSH_THEME=""
-
 fpath=( "$HOME/.zfunctions" $fpath )
 
-plugins=(git fasd colorize history history-substring-search zsh-syntax-highlighting vi-mode web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -27,9 +23,6 @@ source $HOME/.config/zsh-git-prompt/zshrc.sh
 
 autoload -U promptinit; promptinit
 prompt pure
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 alias ll="ls -al"
 alias vim="nvim"
@@ -56,26 +49,5 @@ bindkey -v
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# start mysql function
-function start_mysql() {
-  if [ -z "$(docker ps | grep dev_mysql)" ]; then
-    if [ -z "$(docker ps --all | grep dev_mysql)" ]; then
-      echo "creating and starting mysql docker container"
-      docker run \
-        --name dev_mysql \
-        -p 3306:3306 \
-        -e MYSQL_ROOT_PASSWORD=password \
-        -e MYSQL_ROOT_HOST=% \
-        -d mysql/mysql-server:latest
-    else
-      echo "starting mysql docker container"
-      docker start dev_mysql
-    fi
-  else
-    echo "mysql docker container already running"
-  fi
-}
-
-function stop_mysql() {
-  docker stop dev_mysql
-}
+# functions
+source ${HOME}/.zsh-functions/mysql

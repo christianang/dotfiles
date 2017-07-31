@@ -1,0 +1,25 @@
+#!/bin/bash -eu
+
+# start mysql function
+function start_mysql() {
+  if [ -z "$(docker ps | grep dev_mysql)" ]; then
+    if [ -z "$(docker ps --all | grep dev_mysql)" ]; then
+      echo "creating and starting mysql docker container"
+      docker run \
+        --name dev_mysql \
+        -p 3306:3306 \
+        -e MYSQL_ROOT_PASSWORD=password \
+        -e MYSQL_ROOT_HOST=% \
+        -d mysql/mysql-server:latest
+    else
+      echo "starting mysql docker container"
+      docker start dev_mysql
+    fi
+  else
+    echo "mysql docker container already running"
+  fi
+}
+
+function stop_mysql() {
+  docker stop dev_mysql
+}
