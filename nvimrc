@@ -45,9 +45,6 @@ set ts=2
 set nowrap
 set backspace=2
 
-" Clipboard works with yank buffer
-set clipboard+=unnamedplus
-
 " Enable vim stuff
 set hlsearch
 set autoread
