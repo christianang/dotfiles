@@ -1,0 +1,20 @@
+#!/bin/bash -exu
+
+sudo dnf -y install \
+  neovim \
+  fasd \
+  git \
+  golang \
+  tmux \
+  zsh \
+  chromium \
+  direnv \
+  util-linux-user \
+  gnome-tweak-tool \
+  xclip
+
+# Install Paper theme
+sudo dnf config-manager --add-repo http://download.opensuse.org/repositories/home:snwh:paper/Fedora_25/home:snwh:paper.repo
+sudo dnf install \
+  paper-gtk-theme \
+  paper-icon-theme
