@@ -1,4 +1,4 @@
-#!/bin/bash -exu
+#!/bin/bash -eu
 
 export ROOT="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)"
 
@@ -32,14 +32,11 @@ function setup_brew {
 
 function setup_nvim {
   echo "Setup nvim config"
-
   mkdir -p "${HOME}/.config/nvim"
   ln -sf "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
 
-  mkdir -p "${HOME}/.config/nvim/colors"
-  ln -sf "${ROOT}/colorscheme/base16-zero.vim" "${HOME}/.config/nvim/colors/base16-zero.vim"
-
   if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    echo "Installing vundle..."
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   fi
 
@@ -58,17 +55,17 @@ function setup_nvim {
 
 function setup_tmux {
   echo "Setup tmux config"
-  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  if [[ "${OSTYPE}" == "linux-gnu" ]]; then
     ln -sf "${ROOT}/tmux-linux.conf" "${HOME}/.tmux.conf"
-  elif [[ "$OSTYPE" == "darwin"* ]]; then
+  elif [[ "${OSTYPE}" == "darwin"* ]]; then
     ln -sf "${ROOT}/tmux-osx.conf" "${HOME}/.tmux.conf"
   fi
 }
 
 function setup_zshrc {
-  echo "Installing oh-my-zsh..."
-  if [ ! -d ${HOME}/.oh-my-zsh ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
+    echo "Installing oh-my-zsh..."
+    git clone https://github.com/robbyrussell/oh-my-zsh.git "${HOME}/.oh-my-zsh"
   fi
 
   echo "Setup zsh config"
@@ -95,9 +92,9 @@ function setup_ruby {
   fi
 
   echo "Installing ruby 2.3.0..."
-  rbenv install -s 2.3.0
-  rbenv global 2.3.0
-  eval "$(rbenv init -)"
+  "${HOME}/.rbenv/bin/rbenv" install -s 2.3.0
+  "${HOME}/.rbenv/bin/rbenv" global 2.3.0
+  eval "$(${HOME}/.rbenv/bin/rbenv init -)"
 
   echo "Linking gemrc..."
   ln -sf $(pwd)/gemrc ${HOME}/.gemrc
@@ -142,10 +139,6 @@ function setup_powerline() {
   rm -rf fonts
 }
 
-function setup_git_duet() {
-  ln -sf "${ROOT}/git-authors" "${HOME}/.git-authors"
-}
-
 function main() {
   confirm
 
@@ -160,11 +153,9 @@ function main() {
   setup_zshrc
   setup_tmux
   setup_git
-  setup_fzf
-  #setup_ruby
+  # setup_ruby
   setup_go
   setup_powerline
-  setup_git_duet
 
   echo "Workstation setup complete"
 }
