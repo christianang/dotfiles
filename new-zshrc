@@ -1,0 +1,18 @@
+export ZSH=/Users/cang/.oh-my-zsh
+
+ZSH_THEME="robbyrussell"
+
+plugins=(
+  git
+  fzf
+  fasd
+  rbenv
+  direnv
+  history
+  history-substring-search
+  zsh-syntax-highlighting
+  vi-mode
+  web-search
+)
+
+source $ZSH/oh-my-zsh.sh

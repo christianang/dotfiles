@@ -2,7 +2,7 @@
 export ZSH=${HOME}/.oh-my-zsh
 
 # Theme
-source ~/.base16_theme
+# source ~/.base16_theme
 ZSH_THEME=""
 plugins=(git fasd colorize history history-substring-search zsh-syntax-highlighting vi-mode web-search)
 
@@ -29,23 +29,10 @@ alias vim="nvim"
 alias reload="source ~/.zshrc"
 alias docker_rm_all="docker ps --all | cut -d" " -f1 | grep -v CONTAINER | xargs -n 1 docker rm"
 
-# setup direnv
-eval "$(direnv hook zsh)"
-
-# setup fasd
-eval "$(fasd --init auto)"
-
 # setup nvm
 export NVM_DIR="/home/cang/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# load rbenv
-eval "$(rbenv init -)"
-
-# zsh vi mode
-bindkey -v
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # functions
 source ${HOME}/.zsh-functions/mysql
