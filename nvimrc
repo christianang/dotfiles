@@ -125,8 +125,10 @@ highlight ColorColumn guibg=#262626 ctermbg=255
 call matchadd('ColorColumn', '\%81v', 100)
 
 " colorscheme
-let base16colorspace=256
-colorscheme base16-zero
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Highlight Matching Paren
 hi MatchParen cterm=bold ctermbg=none ctermfg=green
