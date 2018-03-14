@@ -1,8 +1,15 @@
-sudo pacman -Sy \
+sudo pacman -Sy --noconfirm \
+  base-devel \
+  openssh \
   neovim \
   zsh \
-
-pacaur -Sy \
-  direnv \
-  fasd \
-  rbenv
+  fzf \
+  gnome \
+  lightdm \
+  lightdm-gtk-greeter \
+  gnome-tweak-tool \
+  gnome-shell-extensions \
+  ripgrep \
+  xclip \
+  wget \
+  aria2
