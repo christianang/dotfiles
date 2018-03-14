@@ -2,11 +2,12 @@ export ZSH="${HOME}/.oh-my-zsh"
 
 plugins=(
   vi-mode
+  base16
+  pureprompt
   fzf
   fasd
   rbenv
   direnv
-  pureprompt
   history-substring-search
 )
 
