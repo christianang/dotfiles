@@ -4,3 +4,6 @@
 [submodule "modules/iterm2-snazzy"]
 	path = modules/iterm2-snazzy
 	url = https://github.com/sindresorhus/iterm2-snazzy
+[submodule "zsh-custom/plugins/pureprompt/pure"]
+	path = zsh-custom/plugins/pureprompt/pure
+	url = https://github.com/sindresorhus/pure

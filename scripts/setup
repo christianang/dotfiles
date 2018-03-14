@@ -71,54 +71,14 @@ function setup_zshrc {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   fi
 
-  base16_shell_path=~/.config/base16-shell
-  if [ ! -d ${base16_shell_path} ]; then
-    echo "Cloning base16 shell repo..."
-    git clone "https://github.com/chriskempson/base16-shell.git" ${base16_shell_path}
-  fi
-
   echo "Setup zsh config"
   ln -sf "${ROOT}/zshrc" "${HOME}/.zshrc"
-
-  echo "Add zsh-git-prompt"
-  local zsh_git_prompt_path=${HOME}/.config/zsh-git-prompt
-  if [ ! -d ${zsh_git_prompt_path} ]; then
-    git clone https://github.com/olivierverdier/zsh-git-prompt ${zsh_git_prompt_path}
-  fi
-
-  echo "Adding colorscheme"
-  ln -sf "${ROOT}/colorscheme/base16_theme" "${HOME}/.base16_theme"
-
-  echo "Adding zsh theme"
-  ln -sf "${ROOT}/zero.zsh-theme" "${HOME}/.oh-my-zsh/themes/zero.zsh-theme"
-
-  echo "Install pure prompt"
-  local pure_prompt_path=${HOME}/.config/pure
-  if [ ! -d ${pure_prompt_path} ]; then
-    git clone https://github.com/sindresorhus/pure ${pure_prompt_path}
-  fi
-
-  mkdir -p ${HOME}/.zfunctions
-  ln -sf "${HOME}/.config/pure/pure.zsh" ${HOME}/.zfunctions/prompt_pure_setup
-  ln -sf "${HOME}/.config/pure/async.zsh" ${HOME}/.zfunctions/async
-
-  ln -sf "${ROOT}/zsh-functions" "${HOME}/.zsh-functions"
-
-  echo "Install zsh-syntax-highlighting"
-  if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-  fi
 }
 
 function setup_git {
   echo "Setup git"
   ln -sf "${ROOT}/gitconfig" "${HOME}/.gitconfig"
   ln -sf "${ROOT}/gitignore_global" "${HOME}/.gitignore_global"
-}
-
-function setup_fzf {
-  echo "Setup fzf"
-  ln -sf "${ROOT}/fzf.zsh" "${HOME}/.fzf.zsh"
 }
 
 function setup_ruby {

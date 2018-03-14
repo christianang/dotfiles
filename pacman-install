@@ -1,0 +1,8 @@
+sudo pacman -Sy \
+  neovim \
+  zsh \
+
+pacaur -Sy \
+  direnv \
+  fasd \
+  rbenv
