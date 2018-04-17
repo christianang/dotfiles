@@ -12,4 +12,6 @@ sudo pacman -Sy --noconfirm \
   ripgrep \
   xclip \
   wget \
-  aria2
+  aria2 \
+  lsof \
+  rust

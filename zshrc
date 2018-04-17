@@ -9,6 +9,9 @@ plugins=(
   rbenv
   direnv
   history-substring-search
+  golang
+  rust
+  aliases
 )
 
 source "${ZSH}/oh-my-zsh.sh"
