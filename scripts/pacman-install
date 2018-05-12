@@ -4,11 +4,7 @@ sudo pacman -Sy --noconfirm \
   neovim \
   zsh \
   fzf \
-  gnome \
-  lightdm \
-  lightdm-gtk-greeter \
-  gnome-tweak-tool \
-  gnome-shell-extensions \
+  fasd \
   ripgrep \
   xclip \
   wget \

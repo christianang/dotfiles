@@ -35,26 +35,32 @@ function setup_nvim {
   mkdir -p "${HOME}/.config/nvim"
   ln -sf "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
 
-  if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    echo "Installing vundle..."
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  fi
+  echo "Installing vim-plug..."
+  mkdir -p ~/.config/nvim/autoload
+  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
   echo "Installing vim plugins..."
-  nvim -c "BundleInstall" -c "qall!" --headless
+  nvim -c "PlugInstall" -c "qall!" --headless
   echo
 
   echo "Updating vim plugins..."
-  nvim -c "BundleUpdate" -c "qall!" --headless
+  nvim -c "PlugUpdate" -c "qall!" --headless
   echo
 
   echo "Installing vim go binaries..."
   nvim -c "GoInstallBinaries" -c "qall!" --headless /tmp/foo.go
   echo
+  
+  echo "Copying config files"
+  ln -sf "${ROOT}/config/nvim/config" "${HOME}/.config/nvim/config"
+  echo
 }
 
 function setup_tmux {
   echo "Setup tmux config"
+  mkdir -p "${HOME}/.config/tmux"
+  ln -sf "${ROOT}/config/tmux/common.conf" "${HOME}/.config/tmux/common.conf"
   if [[ "${OSTYPE}" == "linux-gnu" ]]; then
     ln -sf "${ROOT}/tmux-linux.conf" "${HOME}/.tmux.conf"
   elif [[ "${OSTYPE}" == "darwin"* ]]; then
@@ -70,6 +76,11 @@ function setup_zshrc {
 
   echo "Setup zsh config"
   ln -sf "${ROOT}/zshrc" "${HOME}/.zshrc"
+
+  echo "Setup custom zsh plugins config"
+  for plugin in $(ls "${ROOT}/zsh-custom/plugins"); do
+    ln -sf "${ROOT}/zsh-custom/plugins/${plugin}" "${HOME}/.oh-my-zsh/custom/plugins/${plugin}"
+  done
 }
 
 function setup_git {

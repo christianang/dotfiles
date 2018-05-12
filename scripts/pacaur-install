@@ -1,9 +1,3 @@
 pacaur -Sy --noconfirm --noedit \
-  firefox-nightly \
   direnv \
   fasd \
-  rbenv-git \
-  lightdm-webkit2-greeter \
-  lightdm-webkit-theme-litarvan \
-  paper-gtk-theme-git \
-  paper-icon-theme-git
