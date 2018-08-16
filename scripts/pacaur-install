@@ -1,3 +1,7 @@
 pacaur -Sy --noconfirm --noedit \
   direnv \
   fasd \
+  lightdm-webkit2-greeter \
+  lightdm-webkit-theme-litarvan \
+  paper-gtk-theme-git \
+  paper-icon-theme-git
