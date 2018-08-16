@@ -1,3 +1,5 @@
+runtime! config/preload.vim
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
@@ -15,6 +17,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
+Plug 'OmniSharp/omnisharp-vim'
 
 call plug#end()
 
