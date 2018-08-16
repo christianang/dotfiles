@@ -25,3 +25,4 @@ runtime! config/general.vim
 runtime! config/go.vim
 runtime! config/airline.vim
 runtime! config/fzf.vim
+runtime! config/omnisharp.vim
