@@ -10,4 +10,5 @@ sudo pacman -Sy --noconfirm \
   wget \
   aria2 \
   lsof \
-  rust
+  rust \
+  go
