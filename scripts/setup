@@ -53,6 +53,7 @@ function setup_nvim {
   echo
   
   echo "Copying config files"
+  rm -rf "${HOME}/.config/nvim/config"
   ln -sf "${ROOT}/config/nvim/config" "${HOME}/.config/nvim/config"
   echo
 }
@@ -79,7 +80,9 @@ function setup_zshrc {
 
   echo "Setup custom zsh plugins config"
   for plugin in $(ls "${ROOT}/zsh-custom/plugins"); do
-    ln -sf "${ROOT}/zsh-custom/plugins/${plugin}" "${HOME}/.oh-my-zsh/custom/plugins/${plugin}"
+    if [[ -f "${HOME}/.oh-my-zsh/custom/plugins/${plugin}" ]]; then
+      ln -sf "${ROOT}/zsh-custom/plugins/${plugin}" "${HOME}/.oh-my-zsh/custom/plugins/${plugin}"
+    fi
   done
 }
 
