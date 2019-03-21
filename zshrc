@@ -1,6 +1,7 @@
 export ZSH="${HOME}/.oh-my-zsh"
 
 plugins=(
+  general
   vi-mode
   base16
   pureprompt
