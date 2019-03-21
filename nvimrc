@@ -17,7 +17,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
-Plug 'OmniSharp/omnisharp-vim'
 
 call plug#end()
 
