@@ -51,7 +51,7 @@ function setup_nvim {
   echo "Installing vim go binaries..."
   nvim -c "GoInstallBinaries" -c "qall!" --headless /tmp/foo.go
   echo
-  
+
   echo "Copying config files"
   rm -rf "${HOME}/.config/nvim/config"
   ln -sf "${ROOT}/config/nvim/config" "${HOME}/.config/nvim/config"
@@ -140,9 +140,6 @@ function setup_go {
   export GOPATH="${HOME}/go"
   echo "Installing ginkgo..."
   go get -u github.com/onsi/ginkgo/ginkgo
-
-  echo "Installing gomega..."
-  go get -u github.com/onsi/gomega
 }
 
 function setup_powerline() {
