@@ -16,6 +16,13 @@ function confirm {
   esac
 }
 
+function setup_ssh_agent {
+  echo "Setup ssh_agent service"
+  mkdir -p "${HOME}/.config/systemd/user"
+  ln -sf "${ROOT}/systemd-services/ssh-agent.service" "${HOME}/.config/systemd/user/ssh-agent.service"
+  systemctl enable --user ssh-agent.service
+}
+
 function setup_brew {
   if [ -z "$(which brew)" ]; then
     echo "Installing homebrew..."
@@ -155,6 +162,7 @@ function main() {
 
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
     echo "Detected linux"
+    setup_ssh_agent
   elif [[ "$OSTYPE" == "darwin"* ]]; then
     echo "Detected mac osx"
     setup_brew
