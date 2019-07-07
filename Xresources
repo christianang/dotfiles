@@ -7,7 +7,7 @@ URxvt.cursorBlink: true
 URxvt.cursorUnderline: true
 URxvt.saveLine: 2048
 URxvt.depth: 32
-URxvt.font: xft:Inconsolata\-dz for Powerline:size=10
+URxvt.font: xft:Menlo for Powerline:size=12:antialias=true
 
 ! Copy/Paste
 Urxvt.perl-ext-common: clipboard
