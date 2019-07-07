@@ -1,0 +1,16 @@
+! Appearance
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.geometry: 92x32
+URxvt.internalBorder: 4
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
+URxvt.saveLine: 2048
+URxvt.depth: 32
+URxvt.font: xft:Inconsolata\-dz for Powerline:size=10
+
+! Copy/Paste
+Urxvt.perl-ext-common: clipboard
+Urxvt.clipboard.autocopy: true
+Urxvt.copyCommand: xclip -i -selection clipboard
+Urxvt.pasteCommand: xclip -o -selection clipboard
