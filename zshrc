@@ -9,6 +9,7 @@ plugins=(
   fasd
 #  rbenv
   direnv
+  zsh-syntax-highlighting
   history-substring-search
   golang
   rust
