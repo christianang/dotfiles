@@ -7,7 +7,6 @@ plugins=(
   pureprompt
   fzf
   fasd
-#  rbenv
   direnv
   zsh-syntax-highlighting
   history-substring-search
