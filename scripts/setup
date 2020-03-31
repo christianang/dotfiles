@@ -32,7 +32,7 @@ function setup_brew {
   echo "Running brew update..."
   brew update
   brew tap Homebrew/bundle
-  ln -sf $(pwd)/Brewfile ${HOME}/.Brewfile
+  ln -sf $(pwd)/macosx/Brewfile ${HOME}/.Brewfile
   brew bundle --global
   brew bundle cleanup
 }
@@ -70,9 +70,9 @@ function setup_tmux {
   mkdir -p "${HOME}/.config/tmux"
   ln -sf "${ROOT}/config/tmux/common.conf" "${HOME}/.config/tmux/common.conf"
   if [[ "${OSTYPE}" == "linux-gnu" ]]; then
-    ln -sf "${ROOT}/tmux-linux.conf" "${HOME}/.tmux.conf"
+    ln -sf "${ROOT}/tmux.conf" "${HOME}/.tmux.conf"
   elif [[ "${OSTYPE}" == "darwin"* ]]; then
-    ln -sf "${ROOT}/tmux-osx.conf" "${HOME}/.tmux.conf"
+    ln -sf "${ROOT}/macosx/tmux.conf" "${HOME}/.tmux.conf"
   fi
 }
 
