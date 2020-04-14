@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE KSysGuardWorkSheet>
+<WorkSheet title="Nvidia" columns="2" rows="4" locked="0" interval="1">
+ <host name="127.0.0.1" port="-1" shell="" command="nvidia-gpu-sensor.pl"/>
+ <display labels="1" svgBackground="" vScroll="1" version="1" class="FancyPlotter" vLines="1" unit="" row="0" hScale="3" autoRange="1" fontSize="8" manualRange="0" rowSpan="1" columnSpan="1" showUnit="0" vDistance="30" column="0" stacked="0" title="GPU Temp" hLines="1">
+  <beam sensorName="gpu_temp" sensorType="integer" color="0xff0057ae" hostName="127.0.0.1"/>
+ </display>
+ <display labels="1" svgBackground="" vScroll="1" version="1" class="FancyPlotter" vLines="1" unit="" row="0" hScale="3" autoRange="1" fontSize="8" manualRange="0" rowSpan="1" columnSpan="1" showUnit="0" vDistance="30" column="1" stacked="0" title="GPU Fan Speed" hLines="1">
+  <beam sensorName="gpu_fan_speed" sensorType="integer" color="0xff0057ae" hostName="127.0.0.1"/>
+ </display>
+ <display labels="1" svgBackground="" vScroll="1" version="1" class="FancyPlotter" vLines="1" unit="" row="1" hScale="3" autoRange="1" fontSize="8" manualRange="0" rowSpan="1" columnSpan="1" showUnit="0" vDistance="30" column="0" stacked="0" title="GPU Core Usage" hLines="1">
+  <beam sensorName="gpu_core_usage" sensorType="integer" color="0xff0057ae" hostName="127.0.0.1"/>
+ </display>
+ <display labels="1" svgBackground="" vScroll="1" version="1" class="FancyPlotter" vLines="1" unit="" row="1" hScale="3" autoRange="1" fontSize="8" manualRange="0" rowSpan="1" columnSpan="1" showUnit="0" vDistance="30" column="1" stacked="0" title="GPU Core Clock" hLines="1">
+  <beam sensorName="gpu_core_clock" sensorType="integer" color="0xff0057ae" hostName="127.0.0.1"/>
+ </display>
+ <display labels="1" svgBackground="" vScroll="0" version="1" class="FancyPlotter" vLines="0" unit="" row="2" hScale="3" autoRange="1" fontSize="8" manualRange="0" rowSpan="1" columnSpan="1" showUnit="0" vDistance="30" column="0" stacked="0" title="GPU Memory Usage" hLines="1">
+  <beam sensorName="gpu_mem_mib" sensorType="integer" color="0xff0057ae" hostName="127.0.0.1"/>
+ </display>
+ <display labels="1" svgBackground="" vScroll="0" version="1" class="FancyPlotter" vLines="0" unit="" row="2" hScale="3" autoRange="1" fontSize="8" manualRange="0" rowSpan="1" columnSpan="1" showUnit="0" vDistance="30" column="1" stacked="0" title="GPU Memory Clock" hLines="1">
+  <beam sensorName="gpu_mem_clock" sensorType="integer" color="0xff0057ae" hostName="127.0.0.1"/>
+ </display>
+ <display labels="1" svgBackground="" vScroll="1" version="1" class="FancyPlotter" vLines="1" unit="" row="3" hScale="3" autoRange="1" fontSize="8" manualRange="0" rowSpan="1" columnSpan="1" showUnit="0" vDistance="30" column="0" stacked="0" title="GPU Video Decode" hLines="1">
+  <beam sensorName="gpu_video_decode" sensorType="integer" color="0xff0057ae" hostName="127.0.0.1"/>
+ </display>
+ <display labels="1" svgBackground="" vScroll="1" version="1" class="FancyPlotter" vLines="1" unit="" row="3" hScale="3" autoRange="1" fontSize="8" manualRange="0" rowSpan="1" columnSpan="1" showUnit="0" vDistance="30" column="1" stacked="0" title="GPU Video Encode" hLines="1">
+  <beam sensorName="gpu_video_encode" sensorType="integer" color="0xff0057ae" hostName="127.0.0.1"/>
+ </display>
+</WorkSheet>
