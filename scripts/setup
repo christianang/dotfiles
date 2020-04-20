@@ -103,9 +103,7 @@ function setup_powerline() {
 function main() {
   confirm
 
-  if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    echo "Detected linux"
-  elif [[ "$OSTYPE" == "darwin"* ]]; then
+  if [[ "${OSTYPE}" == "darwin"* ]]; then
     echo "Detected mac osx"
     setup_brew
   fi
