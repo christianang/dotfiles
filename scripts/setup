@@ -17,7 +17,8 @@ function confirm() {
 }
 
 function setup_brew() {
-  if [ -z "$(which brew)" ]; then
+  echo "Setup Brew"
+  if [[ -z "$(which brew)" ]]; then
     echo "Installing homebrew..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
@@ -25,7 +26,7 @@ function setup_brew() {
   echo "Running brew update..."
   brew update
   brew tap Homebrew/bundle
-  ln -sf $(pwd)/macosx/Brewfile ${HOME}/.Brewfile
+  ln -sf "$(pwd)/macosx/Brewfile" "${HOME}/.Brewfile"
   brew bundle --global
   brew bundle cleanup
 }
