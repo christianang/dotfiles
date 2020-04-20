@@ -12,6 +12,7 @@ plugins=(
   history-substring-search
   golang
   rust
+  ruby
   aliases
 )
 
