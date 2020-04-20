@@ -2,7 +2,7 @@
 
 export ROOT="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)"
 
-function confirm {
+function confirm() {
   read -r -p "Are you sure? [yN] " response
   case $response in
     [yY][eE][sS]|[yY])
@@ -16,7 +16,7 @@ function confirm {
   esac
 }
 
-function setup_brew {
+function setup_brew() {
   if [ -z "$(which brew)" ]; then
     echo "Installing homebrew..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -30,7 +30,7 @@ function setup_brew {
   brew bundle cleanup
 }
 
-function setup_nvim {
+function setup_nvim() {
   echo "Setup nvim config"
   mkdir -p "${HOME}/.config/nvim"
   ln -sf "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
@@ -58,7 +58,7 @@ function setup_nvim {
   echo
 }
 
-function setup_tmux {
+function setup_tmux() {
   echo "Setup tmux config"
   mkdir -p "${HOME}/.config/tmux"
   ln -sf "${ROOT}/config/tmux/common.conf" "${HOME}/.config/tmux/common.conf"
@@ -69,7 +69,7 @@ function setup_tmux {
   fi
 }
 
-function setup_zshrc {
+function setup_zshrc() {
   if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
     echo "Installing oh-my-zsh..."
     git clone https://github.com/robbyrussell/oh-my-zsh.git "${HOME}/.oh-my-zsh"
@@ -86,7 +86,7 @@ function setup_zshrc {
   done
 }
 
-function setup_git {
+function setup_git() {
   echo "Setup git"
   ln -sf "${ROOT}/gitconfig" "${HOME}/.gitconfig"
   ln -sf "${ROOT}/gitignore_global" "${HOME}/.gitignore_global"
