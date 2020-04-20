@@ -92,31 +92,6 @@ function setup_git {
   ln -sf "${ROOT}/gitignore_global" "${HOME}/.gitignore_global"
 }
 
-function setup_go {
-  echo "Creating go/src and workspace..."
-  go_src=${HOME}/go/src
-  if [ ! -e ${go_src} ]; then
-    mkdir -pv ${HOME}/go/src
-  fi
-
-  if [ -L ${go_src} ]; then
-    echo "${go_src} exists, but is a symbolic link"
-  fi
-
-  workspace=${HOME}/workspace
-  if [ ! -e ${workspace} ]; then
-    ln -sfv ${go_src} ${workspace}
-  fi
-
-  if [ ! -L ${workspace} ]; then
-    echo "${workspace} exists, but is not a symbolic link"
-  fi
-
-  export GOPATH="${HOME}/go"
-  echo "Installing ginkgo..."
-  go get -u github.com/onsi/ginkgo/ginkgo
-}
-
 function setup_powerline() {
   git clone https://github.com/powerline/fonts.git
   pushd fonts > /dev/null
@@ -139,7 +114,6 @@ function main() {
   setup_zshrc
   setup_tmux
   setup_git
-  setup_go
   setup_powerline
 
   echo "Workstation setup complete"
