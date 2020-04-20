@@ -38,25 +38,21 @@ function setup_nvim() {
 
   echo "Installing vim-plug..."
   mkdir -p ~/.config/nvim/autoload
-  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+  curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
   echo "Installing vim plugins..."
   nvim -c "PlugInstall" -c "qall!" --headless
-  echo
 
   echo "Updating vim plugins..."
   nvim -c "PlugUpdate" -c "qall!" --headless
-  echo
 
   echo "Installing vim go binaries..."
-  nvim -c "GoInstallBinaries" -c "qall!" --headless /tmp/foo.go
-  echo
+  nvim -c "GoInstallBinaries" -c "qall!" --headless
 
   echo "Copying config files"
   rm -rf "${HOME}/.config/nvim/config"
   ln -sf "${ROOT}/config/nvim/config" "${HOME}/.config/nvim/config"
-  echo
 }
 
 function setup_tmux() {
