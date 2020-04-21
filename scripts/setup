@@ -21,6 +21,3 @@ function setup_powerline() {
 setup_nvim
 setup_zshrc
 setup_powerline
-
-# TODO: Brew mac
-# TODO: Tmux mac
