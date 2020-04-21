@@ -1,92 +1,13 @@
 #!/bin/bash -eu
 
-export ROOT="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)"
-
-function confirm() {
-  read -r -p "Are you sure? [yN] " response
-  case $response in
-    [yY][eE][sS]|[yY])
-      return
-      ;;
-
-    *)
-      echo "Bailing out, you said no"
-      exit 187
-      ;;
-  esac
-}
-
-function setup_brew() {
-  echo "Setup Brew"
-  if [[ -z "$(which brew)" ]]; then
-    echo "Installing homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
-
-  echo "Running brew update..."
-  brew update
-  brew tap Homebrew/bundle
-  ln -sf "$(pwd)/macosx/Brewfile" "${HOME}/.Brewfile"
-  brew bundle --global
-  brew bundle cleanup
-}
-
 function setup_nvim() {
-  echo "Setup nvim config"
-  mkdir -p "${HOME}/.config/nvim"
-  ln -sf "${ROOT}/nvimrc" "${HOME}/.config/nvim/init.vim"
-
-  echo "Installing vim-plug..."
-  mkdir -p ~/.config/nvim/autoload
-  curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-  echo "Installing vim plugins..."
   nvim -c "PlugInstall" -c "qall!" --headless
-
-  echo "Updating vim plugins..."
   nvim -c "PlugUpdate" -c "qall!" --headless
-
-  echo "Installing vim go binaries..."
   nvim -c "GoInstallBinaries" -c "qall!" --headless
-
-  echo "Copying config files"
-  rm -rf "${HOME}/.config/nvim/config"
-  ln -sf "${ROOT}/config/nvim/config" "${HOME}/.config/nvim/config"
-}
-
-function setup_tmux() {
-  echo "Setup tmux config"
-  mkdir -p "${HOME}/.config/tmux"
-  ln -sf "${ROOT}/config/tmux/common.conf" "${HOME}/.config/tmux/common.conf"
-  if [[ "${OSTYPE}" == "linux-gnu" ]]; then
-    ln -sf "${ROOT}/tmux.conf" "${HOME}/.tmux.conf"
-  elif [[ "${OSTYPE}" == "darwin"* ]]; then
-    ln -sf "${ROOT}/macosx/tmux.conf" "${HOME}/.tmux.conf"
-  fi
 }
 
 function setup_zshrc() {
-  if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
-    echo "Installing oh-my-zsh..."
-    git clone https://github.com/robbyrussell/oh-my-zsh.git "${HOME}/.oh-my-zsh"
-  fi
-
-  echo "Setup zsh config"
-  ln -sf "${ROOT}/zshrc" "${HOME}/.zshrc"
-
-  echo "Setup custom zsh plugins config"
-  for plugin in $(ls "${ROOT}/zsh-custom/plugins"); do
-    if [[ ! -f "${HOME}/.oh-my-zsh/custom/plugins/${plugin}" ]]; then
-      ln -sf "${ROOT}/zsh-custom/plugins/${plugin}" "${HOME}/.oh-my-zsh/custom/plugins/${plugin}"
-    fi
-  done
-}
-
-function setup_git() {
-  echo "Setup git"
-  ln -sf "${ROOT}/gitconfig" "${HOME}/.gitconfig"
-  ln -sf "${ROOT}/gitignore_global" "${HOME}/.gitignore_global"
+  git clone https://github.com/robbyrussell/oh-my-zsh.git "${HOME}/.oh-my-zsh"
 }
 
 function setup_powerline() {
@@ -97,21 +18,9 @@ function setup_powerline() {
   rm -rf fonts
 }
 
-function main() {
-  confirm
+setup_nvim
+setup_zshrc
+setup_powerline
 
-  if [[ "${OSTYPE}" == "darwin"* ]]; then
-    echo "Detected mac osx"
-    setup_brew
-  fi
-
-  setup_nvim
-  setup_zshrc
-  setup_tmux
-  setup_git
-  setup_powerline
-
-  echo "Workstation setup complete"
-}
-
-main
+# TODO: Brew mac
+# TODO: Tmux mac
