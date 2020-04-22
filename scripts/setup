@@ -12,8 +12,7 @@ function clone_or_pull() {
 }
 
 function setup_nvim() {
-  nvim -c "PlugInstall" -c "qall!" --headless
-  nvim -c "PlugUpdate" -c "qall!" --headless
+  nvim +PlugInstall +PlugUpdate +PlugUpgrade +qall --headless
 }
 
 function setup_powerline() {
