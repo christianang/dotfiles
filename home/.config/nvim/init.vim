@@ -9,7 +9,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
