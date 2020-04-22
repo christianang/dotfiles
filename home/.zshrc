@@ -1,5 +1,5 @@
 export ZSH="${HOME}/.oh-my-zsh"
-export ZSH_CUSTOM="${HOME}/workspace/dotfiles/zsh-custom"
+export ZSH_CUSTOM="${HOME}/.config/zsh/custom"
 
 plugins=(
   general
