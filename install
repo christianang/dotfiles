@@ -15,15 +15,23 @@ function install_aur_package() {
   local package="${1}"
   clone_or_pull "https://aur.archlinux.org/${package}.git" "${HOME}/aur/${package}"
   pushd "${HOME}/aur/${package}" > /dev/null
-    makepkg -si
+    makepkg -si --noconfirm
   popd > /dev/null
 }
 
 function install_aur_packages() {
-  for package in $(cat aur-packages);
+  local file="${1}"
+  for package in $(cat ${file});
   do
     install_aur_package ${package}
   done
+}
+
+function clone_or_pull_repos() {
+  local file="${1}"
+  while IFS=, read repo destination; do
+    clone_or_pull "${repo}" "${HOME}/${destination}"
+  done < ${file}
 }
 
 function update_nvim() {
@@ -31,14 +39,9 @@ function update_nvim() {
 }
 
 function main() {
-
-  sudo pacman -Sy --noconfirm $(cat packages)
-  install_aur_packages $(cat aur-packages)
-
-  clone_or_pull "https://github.com/chriskempson/base16-shell" "${HOME}/.config/base16-shell"
-  clone_or_pull "https://github.com/zsh-users/zsh-syntax-highlighting.git" "${HOME}/.config/zsh/custom/plugins/zsh-syntax-highlighting"
-  clone_or_pull "https://github.com/sindresorhus/pure" "${HOME}/.config/pure"
-  clone_or_pull "https://github.com/robbyrussell/oh-my-zsh.git" "${HOME}/.oh-my-zsh"
+  sudo pacman -Sy --noconfirm $(cat config/packages)
+  install_aur_packages "config/aur-packages"
+  clone_or_pull_repos "config/repos"
 
   update_nvim
 }
