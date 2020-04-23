@@ -15,7 +15,6 @@ function setup_nvim() {
   nvim +PlugInstall +PlugUpdate +PlugUpgrade +qall --headless
 }
 
-clone_or_pull "https://github.com/abertsch/Menlo-for-Powerline" "${HOME}/.config/fonts/menlo-for-powerline"
 clone_or_pull "https://github.com/chriskempson/base16-shell" "${HOME}/.config/base16-shell"
 clone_or_pull "https://github.com/zsh-users/zsh-syntax-highlighting.git" "${HOME}/.config/zsh/custom/plugins/zsh-syntax-highlighting"
 clone_or_pull "https://github.com/sindresorhus/pure" "${HOME}/.config/pure"

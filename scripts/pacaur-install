@@ -5,4 +5,5 @@ pacaur -Sy --noconfirm --noedit \
   lightdm-webkit-theme-litarvan \
   paper-gtk-theme-git \
   paper-icon-theme-git \
-  powerline-fonts-git
+  powerline-fonts-git \
+  ttf-menlo-powerline-git
