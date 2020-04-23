@@ -6,4 +6,5 @@ pacaur -Sy --noconfirm --noedit \
   paper-gtk-theme-git \
   paper-icon-theme-git \
   powerline-fonts-git \
-  ttf-menlo-powerline-git
+  ttf-menlo-powerline-git \
+  oh-my-zsh-git
