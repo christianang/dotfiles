@@ -4,4 +4,5 @@ pacaur -Sy --noconfirm --noedit \
   lightdm-webkit2-greeter \
   lightdm-webkit-theme-litarvan \
   paper-gtk-theme-git \
-  paper-icon-theme-git
+  paper-icon-theme-git \
+  powerline-fonts-git

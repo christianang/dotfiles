@@ -1,14 +1,15 @@
 sudo pacman -Sy --noconfirm \
-  base-devel \
-  openssh \
-  neovim \
-  zsh \
-  fzf \
-  fasd \
-  ripgrep \
-  xclip \
-  wget \
   aria2 \
+  base-devel \
+  fasd \
+  fzf \
+  go \
   lsof \
+  neovim \
+  openssh \
+  powerline
+  ripgrep \
   rust \
-  go
+  wget \
+  xclip \
+  zsh \
