@@ -43,8 +43,8 @@ function main() {
   install_aur_packages "config/aur-packages"
   clone_or_pull_repos "config/repos"
 
-  homesick clone https://github.com/christianang/dotfiles.git
-  homesick link dotfiles
+  "${HOME}/.gem/ruby/2.7.0/bin/homesick" clone https://github.com/christianang/dotfiles.git
+  "${HOME}/.gem/ruby/2.7.0/bin/homesick" link dotfiles
 
   update_nvim
 }
