@@ -3,6 +3,7 @@ base-devel
 fasd
 fzf
 go
+htop
 lsof
 neovim
 openssh

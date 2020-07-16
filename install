@@ -21,7 +21,7 @@ function install_aur_package() {
 
 function install_aur_packages() {
   local file="${1}"
-  for package in $(cat ${file});
+  for package in $(cat ${file} | grep -v '#');
   do
     install_aur_package ${package}
   done
