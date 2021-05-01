@@ -2,6 +2,5 @@ swipe:
   3:
     left:
       command: "xdotool key super+ctrl+Left"
-  3:
     right:
       command: "xdotool key super+ctrl+Right"
