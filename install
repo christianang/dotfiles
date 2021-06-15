@@ -38,9 +38,32 @@ function update_nvim() {
   nvim +PlugInstall +PlugUpdate +PlugUpgrade +qall --headless
 }
 
+function arch_install() {
+  echo "Installing on Arch..."
+  sudo pacman -Sy --noconfirm $(cat config/arch/packages)
+  install_aur_packages "config/arch/aur-packages"
+}
+
+function ubuntu_install() {
+  echo "Installing on Ubuntu..."
+  sudo apt update
+  sudo apt install -y $(cat config/ubuntu/packages)
+}
+
 function main() {
-  sudo pacman -Sy --noconfirm $(cat config/packages)
-  install_aur_packages "config/aur-packages"
+  local os_name="$(cat /etc/os-release | grep '^NAME' | cut -d'"' -f2)"
+  case "${os_name}" in
+    "Ubuntu")
+      ubuntu_install
+      ;;
+    "Arch Linux")
+      arch_install
+      ;;
+    *)
+      echo "Unsupported OS ${os_name}"
+      ;;
+  esac
+
   clone_or_pull_repos "config/repos"
 
   "${HOME}/.gem/ruby/2.7.0/bin/homesick" clone https://github.com/christianang/dotfiles.git
