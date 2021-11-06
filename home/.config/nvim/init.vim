@@ -9,28 +9,32 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " Language Server Protocol
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/nvim-lsp-installer', { 'branch': 'main' }
 
 " Completion
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
+Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main' }
+Plug 'hrsh7th/cmp-buffer', { 'branch': 'main' }
+Plug 'hrsh7th/cmp-path', { 'branch': 'main' }
+Plug 'hrsh7th/cmp-vsnip', { 'branch': 'main' }
 Plug 'hrsh7th/vim-vsnip'
+
+" Telescope
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'branch': 'main', 'do': 'make' }
 
 " File Explorer
 Plug 'tamago324/lir.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'tamago324/lir-git-status.nvim'
+Plug 'tamago324/lir-git-status.nvim', { 'branch': 'main' }
 
 " Git
-Plug 'lewis6991/gitsigns.nvim'
+Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-fugitive'
 
 " More plugins
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'b3nj5m1n/kommentary'
+Plug 'b3nj5m1n/kommentary', { 'branch': 'main' }
 Plug 'mg979/vim-visual-multi'
 Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-endwise'
@@ -50,9 +54,10 @@ runtime! config/general.vim
 " runtime! config/go.vim
 " runtime! config/fzf.vim
 
-runtime config/plugins/completions.lua
 runtime config/plugins/lualine.lua
-runtime config/plugins/lir.lua
 runtime config/plugins/lsp_installer.lua
+runtime config/plugins/completions.lua
+runtime config/plugins/telescope.lua
+runtime config/plugins/lir.lua
 runtime config/plugins/gitsigns.lua
 runtime config/plugins/indent_blankline.lua
