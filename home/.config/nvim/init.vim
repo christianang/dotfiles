@@ -53,3 +53,4 @@ runtime! config/general.vim
 runtime config/plugins/completions.lua
 runtime config/plugins/lualine.lua
 runtime config/plugins/lir.lua
+runtime config/plugins/lsp_installer.lua
