@@ -1,5 +1,5 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  if [[ -d "/usr/share/fzf/completion.zsh" ]]; then
+  if [[ -f "/usr/share/fzf/completion.zsh" ]]; then
     # Auto-completion
     # ---------------
     source "/usr/share/fzf/completion.zsh" 2> /dev/null
