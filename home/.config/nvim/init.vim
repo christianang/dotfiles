@@ -28,9 +28,18 @@ Plug 'tamago324/lir-git-status.nvim'
 
 " Git
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'tpope/vim-fugitive'
 
-" Indent Blankline
+" More plugins
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'b3nj5m1n/kommentary'
+Plug 'mg979/vim-visual-multi'
+Plug 'rstacruz/vim-closer'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
+Plug 'haya14busa/incsearch.vim'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
 
 " Plug 'airblade/vim-gitgutter'
 " Plug 'tpope/vim-fugitive'
