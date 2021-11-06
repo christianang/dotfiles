@@ -16,6 +16,11 @@ colorscheme edge
 " General settings
 set number
 set completeopt=menu,menuone,noselect
+set expandtab
+set tabstop=4
+set shiftwidth=4
 
 " Keyboard Bindings
 nnoremap <silent> - :edit %:p:h<cr>
+
+inoremap <S-Tab> <C-d>

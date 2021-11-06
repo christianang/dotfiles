@@ -32,6 +32,12 @@ Plug 'tamago324/lir-git-status.nvim', { 'branch': 'main' }
 Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-fugitive'
 
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Golang
+Plug 'ray-x/go.nvim'
+
 " More plugins
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'b3nj5m1n/kommentary', { 'branch': 'main' }
@@ -60,4 +66,6 @@ runtime config/plugins/completions.lua
 runtime config/plugins/telescope.lua
 runtime config/plugins/lir.lua
 runtime config/plugins/gitsigns.lua
+runtime config/plugins/treesitter.lua
 runtime config/plugins/indent_blankline.lua
+runtime config/plugins/go.lua
