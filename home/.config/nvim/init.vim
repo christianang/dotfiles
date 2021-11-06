@@ -26,6 +26,9 @@ Plug 'tamago324/lir.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'tamago324/lir-git-status.nvim'
 
+" Git
+Plug 'lewis6991/gitsigns.nvim'
+
 " Plug 'airblade/vim-gitgutter'
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-vinegar'
@@ -54,3 +57,4 @@ runtime config/plugins/completions.lua
 runtime config/plugins/lualine.lua
 runtime config/plugins/lir.lua
 runtime config/plugins/lsp_installer.lua
+runtime config/plugins/gitsigns.lua
