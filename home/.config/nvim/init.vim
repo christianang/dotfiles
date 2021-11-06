@@ -51,16 +51,9 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 
-" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-" Plug 'jremmen/vim-ripgrep'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
-
 call plug#end()
 
 runtime! config/general.vim
-" runtime! config/go.vim
-" runtime! config/fzf.vim
 
 runtime config/plugins/lualine.lua
 runtime config/plugins/lsp_installer.lua
