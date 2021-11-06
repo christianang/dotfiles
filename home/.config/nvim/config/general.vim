@@ -31,6 +31,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" Set mouse on
+set mouse=a
+
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
