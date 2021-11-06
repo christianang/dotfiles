@@ -51,5 +51,5 @@ runtime! config/general.vim
 " runtime! config/fzf.vim
 " runtime! config/omnisharp.vim
 
-runtime config/plugins.lua
+runtime config/plugins/lualine.lua
 runtime config/plugins/lir.lua
