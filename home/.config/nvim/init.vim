@@ -1,5 +1,3 @@
-" runtime! config/preload.vim
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Theme
@@ -41,29 +39,16 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 
-" Plug 'airblade/vim-gitgutter'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-vinegar'
-" Plug 'tpope/vim-jdaddy'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-endwise'
 " Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " Plug 'jremmen/vim-ripgrep'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
-" Plug 'scrooloose/nerdcommenter'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'chriskempson/base16-vim'
-" Plug 'connorholyday/vim-snazzy'
 
 call plug#end()
 
 runtime! config/general.vim
 " runtime! config/go.vim
-" runtime! config/airline.vim
 " runtime! config/fzf.vim
-" runtime! config/omnisharp.vim
 
 runtime config/plugins/completions.lua
 runtime config/plugins/lualine.lua
