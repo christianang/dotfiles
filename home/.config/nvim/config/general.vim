@@ -19,6 +19,17 @@ set completeopt=menu,menuone,noselect
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set nowrap
+set hidden
+set splitright
+set ignorecase
+set smartcase
+
+" Lsp Diagnostic Signs
+sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
+sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=
 
 " Keyboard Bindings
 nnoremap <silent> - :edit %:p:h<cr>

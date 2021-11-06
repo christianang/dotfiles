@@ -11,6 +11,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer', { 'branch': 'main' }
 
+Plug 'folke/trouble.nvim', { 'branch': 'main' }
+
 " Completion
 Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main' }
@@ -62,6 +64,7 @@ runtime! config/general.vim
 
 runtime config/plugins/lualine.lua
 runtime config/plugins/lsp_installer.lua
+runtime config/plugins/trouble.lua
 runtime config/plugins/completions.lua
 runtime config/plugins/telescope.lua
 runtime config/plugins/lir.lua
