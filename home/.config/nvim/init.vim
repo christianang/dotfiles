@@ -40,6 +40,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Golang
 Plug 'ray-x/go.nvim'
 
+" Testing
+Plug 'vim-test/vim-test'
+Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
+
 " More plugins
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'b3nj5m1n/kommentary', { 'branch': 'main' }
