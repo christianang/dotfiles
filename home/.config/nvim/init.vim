@@ -14,11 +14,10 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 
 " Completion
+Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
@@ -51,5 +50,6 @@ runtime! config/general.vim
 " runtime! config/fzf.vim
 " runtime! config/omnisharp.vim
 
+runtime config/plugins/completions.lua
 runtime config/plugins/lualine.lua
 runtime config/plugins/lir.lua
