@@ -44,6 +44,9 @@ Plug 'ray-x/go.nvim'
 Plug 'vim-test/vim-test'
 Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 
+" Which-key
+Plug 'folke/which-key.nvim'
+
 " More plugins
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'b3nj5m1n/kommentary', { 'branch': 'main' }
@@ -69,3 +72,4 @@ runtime config/plugins/gitsigns.lua
 runtime config/plugins/treesitter.lua
 runtime config/plugins/indent_blankline.lua
 runtime config/plugins/go.lua
+runtime config/plugins/which_key.lua

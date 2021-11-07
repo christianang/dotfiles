@@ -44,5 +44,8 @@ nnoremap <silent> <leader>ff <cmd>lua require('telescope.builtin').find_files({h
 nnoremap <silent> <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <silent> <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <silent> <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <silent> <esc> :noh<cr>
 
 inoremap <S-Tab> <C-d>
+
+vnoremap Y "+y<cr>
