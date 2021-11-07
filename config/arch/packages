@@ -6,6 +6,8 @@ go
 htop
 lsof
 neovim
+nodejs
+npm
 openssh
 powerline
 ripgrep
