@@ -31,6 +31,12 @@ sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning 
 sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
 sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=
 
+" Ultest Signs
+let g:ultest_pass_sign = ''
+let g:ultest_fail_sign = ''
+let g:ultest_running_sign = ''
+let g:ultest_not_run_sign = ''
+
 " Keyboard Bindings
 nnoremap <silent> - :edit %:p:h<cr>
 nnoremap <silent> <C-p> <cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>
