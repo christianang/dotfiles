@@ -10,6 +10,8 @@ nodejs
 npm
 openssh
 powerline
+python
+python-pip
 ripgrep
 ruby
 rust
