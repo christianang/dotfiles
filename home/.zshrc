@@ -15,6 +15,8 @@ plugins=(
   rust
   ruby
   aliases
+  android
+  flutter
 )
 
 source "${ZSH}/oh-my-zsh.sh"
