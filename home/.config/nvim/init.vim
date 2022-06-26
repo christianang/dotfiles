@@ -42,7 +42,6 @@ Plug 'ray-x/go.nvim'
 
 " Testing
 Plug 'vim-test/vim-test'
-Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 
 " Which-key
 Plug 'folke/which-key.nvim'
