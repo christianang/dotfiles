@@ -122,11 +122,6 @@ require('packer').startup(function(use)
         config = function() require('plugins/which-key') end,
     }
 
-    -- indentation guide
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function() require('plugins/indent-blankline') end,
-    }
 
     -- visual git
     use {
