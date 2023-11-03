@@ -1,3 +1,5 @@
 export PATH="${PATH}:/usr/bin"
 
-eval "$(ssh-agent)"
+if [[ -z "$(ssh-add -l)" ]]; then
+    eval "$(ssh-agent)"
+fi
