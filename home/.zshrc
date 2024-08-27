@@ -2,6 +2,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 export ZSH_CUSTOM="${HOME}/.config/zsh/custom"
 
 plugins=(
+  asdf
   general
   vi-mode
   base16
