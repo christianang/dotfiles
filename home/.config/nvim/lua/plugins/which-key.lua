@@ -5,7 +5,7 @@ local wk = require("which-key")
 
 wk.setup {}
 
-wk.register({
+wk.add({
     {
         { "<leader>f",  group = "find" },
         { "<leader>fb", desc = "Buffer" },
