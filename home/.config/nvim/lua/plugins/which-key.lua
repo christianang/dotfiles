@@ -6,11 +6,11 @@ local wk = require("which-key")
 wk.setup {}
 
 wk.register({
-    f = {
-        name = "find",
-        f = "Files",
-        g = "Grep",
-        b = "Buffer",
-        h = "Help Tags",
-    },
-}, { prefix = "<leader>" })
+    {
+        { "<leader>f",  group = "find" },
+        { "<leader>fb", desc = "Buffer" },
+        { "<leader>ff", desc = "Files" },
+        { "<leader>fg", desc = "Grep" },
+        { "<leader>fh", desc = "Help Tags" },
+    }
+})
