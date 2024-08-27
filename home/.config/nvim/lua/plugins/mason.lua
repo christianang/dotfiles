@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup {
-    ensure_installed = { "gopls", "ruby_lsp", "lua_ls", "pyright", "golangci_lint_ls" }
+    ensure_installed = { "gopls", "lua_ls", "pyright", "golangci_lint_ls" }
 }
 
 local null_ls = require("null-ls")
@@ -43,4 +43,3 @@ end
 require("lspconfig").gopls.setup { capabilities = capabilities, on_attach = on_attach }
 require("lspconfig").lua_ls.setup { capabilities = capabilities, on_attach = on_attach }
 require("lspconfig").pyright.setup { capabilities = capabilities, on_attach = on_attach }
-require("lspconfig").ruby_lsp.setup { capabilities = capabilities, on_attach = on_attach }
