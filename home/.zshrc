@@ -7,6 +7,7 @@ plugins=(
   vi-mode
   base16
   pureprompt
+  python
   fzf
   fasd
   direnv
