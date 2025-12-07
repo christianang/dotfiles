@@ -25,9 +25,6 @@ vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, {})
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, {})
 vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, {})
 
--- Trouble
-vim.keymap.set("n", "<leader>e", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
-
 -- Save on enter
 vim.keymap.set('n', '<CR>', function()
     if vim.api.nvim_eval([[&modified]]) ~= 1 or vim.api.nvim_eval([[&buftype]]) ~= '' then

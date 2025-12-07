@@ -35,7 +35,7 @@ function clone_or_pull_repos() {
 }
 
 function update_nvim() {
-  nvim +PlugInstall +PlugUpdate +PlugUpgrade +qall --headless
+  nvim --headless "+Lazy! sync" +qa
 }
 
 function arch_install() {
@@ -66,8 +66,8 @@ function main() {
 
   clone_or_pull_repos "config/repos"
 
-  "${HOME}/.gem/ruby/2.7.0/bin/homesick" clone https://github.com/christianang/dotfiles.git
-  "${HOME}/.gem/ruby/2.7.0/bin/homesick" link dotfiles
+  homesick clone https://github.com/christianang/dotfiles.git
+  homesick link dotfiles
 
   update_nvim
 }
