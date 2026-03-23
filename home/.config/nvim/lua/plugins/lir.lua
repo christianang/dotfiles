@@ -57,6 +57,15 @@ return {
             end
         })
 
+        -- custom folder icon
+        require'nvim-web-devicons'.set_icon({
+            lir_folder_icon = {
+                icon = "",
+                color = "#7ebae4",
+                name = "LirFolderNode"
+            }
+        })
+
         require('lir.git_status').setup {}
 
         -- Override lir key binding to open in current pane and not float
