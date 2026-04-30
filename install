@@ -50,6 +50,18 @@ function ubuntu_install() {
   sudo apt install -y $(cat config/ubuntu/packages)
 }
 
+function install_asdf() {
+  go install github.com/asdf-vm/asdf/cmd/asdf@v0.19.0
+}
+
+function install_asdf_nvim() {
+  asdf plugin add neovim
+  asdf install neovim latest
+  if [[ -z $(cat ~/.tool-versions| grep neovim) ]]; then
+    echo "neovim $(asdf latest neovim)" >> .tool-versions
+  fi
+}
+
 function main() {
   local os_name="$(cat /etc/os-release | grep '^NAME' | cut -d'"' -f2)"
   case "${os_name}" in
@@ -65,6 +77,9 @@ function main() {
   esac
 
   clone_or_pull_repos "config/repos"
+
+  install_asdf
+  install_asdf_nvim
 
   homesick clone https://github.com/christianang/dotfiles.git
   homesick link dotfiles
