@@ -1,2 +1,2 @@
 export BASE16_SHELL="${HOME}/.config/base16-shell"
-source "${BASE16_SHELL}/profile_helper.plugin.zsh"
+source "${BASE16_SHELL}/base16-shell.plugin.zsh"
