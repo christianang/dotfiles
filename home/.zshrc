@@ -2,6 +2,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 export ZSH_CUSTOM="${HOME}/.config/zsh/custom"
 
 plugins=(
+  golang
   asdf
   general
   base16
@@ -12,7 +13,6 @@ plugins=(
   direnv
   zsh-syntax-highlighting
   history-substring-search
-  golang
   rust
   ruby
   aliases
