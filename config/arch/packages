@@ -5,6 +5,7 @@ fzf
 go
 htop
 lsof
+make
 neovim
 nodejs
 npm

@@ -4,8 +4,9 @@ fzf
 golang
 htop
 lsof
-openssh-server
+make
 openssh-client
+openssh-server
 powerline
 ripgrep
 ruby
